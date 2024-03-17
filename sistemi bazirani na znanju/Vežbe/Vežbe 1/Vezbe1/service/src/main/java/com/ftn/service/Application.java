@@ -31,11 +31,11 @@ public class Application implements CommandLineRunner {
 	{
 	
 		// pokretati odvojeno svaku main klasu
-		//Test.main();
+		Test.main();
 		
 		//GlobalExample.main();
 		
-		ModifyExample.main();
+		//ModifyExample.main();
 		//AgendaGroupExample.main();
 		//DeleteExample.main();
 		

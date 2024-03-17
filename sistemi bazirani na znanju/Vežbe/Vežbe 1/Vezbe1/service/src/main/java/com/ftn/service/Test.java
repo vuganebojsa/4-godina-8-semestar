@@ -22,6 +22,12 @@ public class Test{
             message.setMessage("Hello World");
             message.setStatus(Message.HELLO);
             kSession.insert(message);
+
+            Message message2 = new Message();
+            message2.setMessage("hello there");
+            message2.setStatus(Message.NONE);
+
+            kSession.insert(message2);
             kSession.fireAllRules();
 
             // kSession.getAgenda().getAgendaGroup("promotions").setFocus();
