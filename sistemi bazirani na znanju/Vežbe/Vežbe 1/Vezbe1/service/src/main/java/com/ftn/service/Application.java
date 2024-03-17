@@ -35,9 +35,9 @@ public class Application implements CommandLineRunner {
 		
 		//GlobalExample.main();
 		
-		//ModifyExample.main();
+		ModifyExample.main();
 		//AgendaGroupExample.main();
-		DeleteExample.main();
+		//DeleteExample.main();
 		
 	}
 
