@@ -26,7 +26,7 @@ rule "Done with promotions. Onward with printing invoice"
     when
         OrderLine()
     then
-        System.out.println("Activated printing")
+        System.out.println("Activated printing");
         kcontext.getKnowledgeRuntime().getAgenda().getAgendaGroup("printing").setFocus();
 end
 
