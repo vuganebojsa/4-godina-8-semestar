@@ -1,0 +1,16 @@
+package rules;
+
+import com.ftn.sbnz.backward.model.models.Location;
+
+query isContainedIn( String x, String y )
+  Location( x, y; )
+  or
+  ( Location( z, y; ) and isContainedIn( x, z; ) )
+end
+
+rule "all of S Series"
+    when
+        isContainedIn($item, "S";)
+    then
+        System.out.println($item + " in  S series");
+end
