@@ -2,6 +2,12 @@
  <kbase name="cepKbase" eventProcessingMode="stream" packages="cep">
         <ksession name="cepKsession"/>
     </kbase>
+    <kbase name="flights" eventProcessingMode="stream" packages="flights">
+        <ksession name="flightsSession"/>
+    </kbase>
+    <kbase name="trans" eventProcessingMode="stream" packages="transactions">
+        <ksession name="transSession" clockType="pseudo"/>
+    </kbase>
     
     <kbase name="cepConfigKbase" eventProcessingMode="stream" packages="cep2">
         <ksession name="cepConfigKsessionPseudoClock" clockType="pseudo"/>

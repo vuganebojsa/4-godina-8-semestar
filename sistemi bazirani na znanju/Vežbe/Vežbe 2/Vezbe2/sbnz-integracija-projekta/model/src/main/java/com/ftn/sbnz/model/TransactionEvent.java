@@ -14,9 +14,11 @@ public class TransactionEvent implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Date executionTime;
-    private Long customerId;
-    private Double totalAmount;
+    public Long customerId;
+    public Double totalAmount;
+    public boolean isDuplicate;
 
+    
     public TransactionEvent() {
         super();
     }
@@ -26,6 +28,7 @@ public class TransactionEvent implements Serializable {
         this.executionTime = new Date();
         this.customerId = customerId;
         this.totalAmount = totalAmount;
+        this.isDuplicate = false;
     }
 
 
@@ -52,6 +55,18 @@ public class TransactionEvent implements Serializable {
 
     public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public boolean isDuplicate() {
+        return isDuplicate;
+    }
+
+    public void setDuplicate(boolean isDuplicate) {
+        this.isDuplicate = isDuplicate;
     } 
 }
 

@@ -11,6 +11,7 @@ declare AlarmTriggered
     customerId: Long
 end
 
+
 rule "More than 10 transactions in an hour from one client"
     when
         $t1: TransactionEvent($cId: customerId)

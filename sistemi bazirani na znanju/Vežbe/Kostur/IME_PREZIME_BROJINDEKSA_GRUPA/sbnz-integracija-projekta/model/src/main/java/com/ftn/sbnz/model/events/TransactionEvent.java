@@ -13,7 +13,7 @@ public class TransactionEvent implements Serializable {
     private static final long serialVersionUID = 1L;
     private Date executionTime;
     private Long customerId;
-    private Double totalAmount;
+    private Double totalAmount; 
     public String Phone;
 
     public String getPhone() {

@@ -1,0 +1,21 @@
+package transactions;
+
+import com.ftn.sbnz.model.TransactionEvent;
+import com.ftn.sbnz.model.Customer;
+
+rule "set transaction as duplicate"
+    when
+        $t1: TransactionEvent
+        ($customerId: customerId,
+        $amount: totalAmount,
+        isDuplicate == false)
+        $t2: TransactionEvent
+        (customerId == $customerId,
+        this != $t1,
+        isDuplicate == false,
+        totalAmount == $amount,
+        this after[0s, 15s] $t1)
+    then
+        modify($t2){setDuplicate(true);}
+end
+

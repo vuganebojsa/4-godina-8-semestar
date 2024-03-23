@@ -1,0 +1,14 @@
+package flights;
+
+import com.ftn.sbnz.model.Flight;
+
+rule "flight not clear"
+    when
+        $l2: Flight(redirected == false)
+        $l1: Flight(redirected == false,
+                    this != $l2,
+                    this after[0s, 3m] $l2)
+        
+    then
+        modify($l1){setRedirected(true);}
+end
