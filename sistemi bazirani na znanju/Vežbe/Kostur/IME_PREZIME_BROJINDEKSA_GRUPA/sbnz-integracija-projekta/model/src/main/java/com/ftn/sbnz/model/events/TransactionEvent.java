@@ -3,19 +3,26 @@ package com.ftn.sbnz.model.events;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.kie.api.definition.type.Expires;
 import org.kie.api.definition.type.Role;
 import org.kie.api.definition.type.Timestamp;
 
 @Role(Role.Type.EVENT)
 @Timestamp("executionTime")
-@Expires("2h30m")
 public class TransactionEvent implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Date executionTime;
     private Long customerId;
     private Double totalAmount;
+    public String Phone;
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
 
     public TransactionEvent() {
         super();
@@ -23,12 +30,15 @@ public class TransactionEvent implements Serializable {
     
     public TransactionEvent(Long customerId, Double totalAmount) {
         super();
-        this.executionTime = new Date();
         this.customerId = customerId;
         this.totalAmount = totalAmount;
     }
 
-
+    public TransactionEvent(Long customerId, Double totalAmount, String phone) {
+        this.customerId = customerId;
+        this.totalAmount = totalAmount;
+        Phone = phone;
+    }
 
     public Date getExecutionTime() {
         return executionTime;

@@ -1,1 +1,41 @@
 package cep;
+
+import com.ftn.sbnz.model.events.TransactionEvent;
+import com.ftn.sbnz.model.models.Coupon;
+
+rule "Purchased 3 phones in last 5 minutes with price bigger than 800"
+    when
+        $transaction: TransactionEvent(
+            $customerId: customerId,
+            totalAmount > 800,
+            phone == "Samsung"
+        )
+        Number(intValue >= 2) from accumulate(
+            $otherTransaciton: TransactionEvent(
+                this != $transaction,
+                customerId == $customerId,
+                totalAmount > 800,
+                phone == "Samsung"
+            )
+            over window: time(5m), count($otherTransaciton)
+        )
+        not Coupon(id == $customerId)
+    then
+        insert(new Coupon($customerId, 10.00));
+        System.out.println("Desilo se brt");
+end
+
+rule "Tablet purchased"
+    when
+        $transaction: TransactionEvent(
+            $customerId: customerId,
+            phone == "Tablet",
+            $totalAmount: totalAmount
+        )
+        $c : Coupon(id == $customerId)
+    then
+        modify($transaction)
+        {setTotalAmount($totalAmount * 0.90);}
+        System.out.println("tablet brt");
+        delete($c);
+end
