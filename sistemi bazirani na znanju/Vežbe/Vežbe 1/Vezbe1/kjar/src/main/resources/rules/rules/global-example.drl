@@ -14,3 +14,4 @@ rule "Combo discount"
         $o.setDiscount(new Discount(10.0));
         update($o);
 end
+

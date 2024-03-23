@@ -64,7 +64,7 @@ public class GlobalExample {
         System.out.println(fired);
         
        
-        System.out.println("Discount: " + o.getDiscount());
+        System.out.println("Discount: " + o.getDiscount().getPercentage().toString());
 	}
 
 }

@@ -33,7 +33,7 @@ public class Application implements CommandLineRunner {
 		// pokretati odvojeno svaku main klasu
 		//Test.main();
 		
-		//GlobalExample.main();
+		GlobalExample.main();
 		
 		//ModifyExample.main();
 		//AgendaGroupExample.main();
